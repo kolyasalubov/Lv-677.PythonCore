@@ -41,3 +41,4 @@ Zen of Python!
 50. In the face of ambiguity, refuse the temptation to guess.
 56. Readability counts.
 58. Complex is better than complicated.
+59.Flat is better than nested.

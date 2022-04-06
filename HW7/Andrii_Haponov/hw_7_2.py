@@ -19,22 +19,22 @@
 
 import re
 
-login = input("Enter login : ")  
+password = input("Enter password : ")  
 
 while True:
-    pattern = login
+    pattern = password
     v_1 = re.findall("[$, #, @]", pattern)
     v_2 = re.findall("[0-9]", pattern)
     v_3 = re.findall("[a-z]", pattern)
     v_4 = re.findall("[A-Z]", pattern)
-    if len(login) >= 6 and len(login) <= 16\
+    if len(password) >= 6 and len(password) <= 16\
         and len(v_1) >= 1 and len(v_2) >= 1\
         and len(v_3) >= 1 and len(v_4) >= 1:
-        print(f"Hello {login}!")
+        print(f"Hello {password}!")
         break
     else:
-        print("Enter correct login!")
-        login = input("Enter login : ")
+        print("Enter correct password!")
+        password = input("Enter password : ")
             
 
 

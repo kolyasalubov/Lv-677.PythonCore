@@ -5,3 +5,4 @@ print('Hello,', str.title(name))
 print('Your age is', (age))
 print('You live in', str.title(city))
 print(name, age, city)
+

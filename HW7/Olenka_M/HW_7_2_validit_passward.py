@@ -12,13 +12,13 @@ def check_validity_password(password: str) -> str:
     
     if not 6 <= len(password) <= 16:
         print("Password lenght must be not less than 6 and not more than 16")
-    elif not re.findall("[$#@]", password):
+    elif not re.search("[$#@]", password):
         print("For validity password, please, create password using at least one of the next symbals $, #, @")
-    elif not re.findall("[0-9]", password):
+    elif not re.search("[0-9]", password):
         print("For validity password, please, create password using at least one of the digit 0-9")
-    elif not re.findall("[A-Z]", password):
+    elif not re.search("[A-Z]", password):
         print("For validity password, please, create password using at least one capital letter A-Z")
-    elif not re.findall("[a-z]", password):
+    elif not re.search("[a-z]", password):
         print("For validity password, please, create password using at least one normal letter a-z")
     else:
         print("Great! Your password has maximum reliability")

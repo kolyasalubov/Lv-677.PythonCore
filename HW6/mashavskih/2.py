@@ -29,3 +29,4 @@ if __name__ == "__main__" :
     print('Calculate square of area shape:\n 1 -> Rectangle;\n 2 -> Triangle;\n 3 -> Circle')
     choice= int(input('Enter the number of shape whose area you want to find: '))
     calc_area(choice)
+    

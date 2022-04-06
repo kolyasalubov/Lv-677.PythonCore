@@ -16,3 +16,4 @@ elif choice == 3:
     print(f'The area of circle is {scrypt.circle(radius_squared)}.')
 else:
     print('This number not available!')
+    

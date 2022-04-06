@@ -15,5 +15,4 @@ elif choice == 3:
     radius_squared = float(input('Enter radius squared of circle:\n'))
     print(f'The area of circle is {scrypt.circle(radius_squared)}.')
 else:
-    print('This number not available!')
-    
+    print('This number not available!')  

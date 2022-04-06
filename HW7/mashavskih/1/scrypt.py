@@ -9,4 +9,3 @@ def triangle(base_triangle, height_triangle):
 def circle(radius_squared):
     area_circle = math.pi * math.pow(radius_squared, 2)
     return area_circle
-    

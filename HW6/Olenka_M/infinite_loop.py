@@ -8,3 +8,4 @@ def create_array(n: float) -> list:
 
 def create_array(n: float) -> list:
     return [i for i in range(1, n+1)]
+    

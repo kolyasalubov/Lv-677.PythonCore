@@ -37,4 +37,3 @@ elif user_choice == "3":
     radius = float(input("Please, enter radius of circle: "))
     print(f"Circle square is {circle_square(radius)}")    
 else: ("Sorry, you entered wrong number")
-

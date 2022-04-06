@@ -3,3 +3,4 @@ def number_to_string(num: float) -> str:
 
 def number_to_string(num: float) -> str:
     return f"{num}"
+    

@@ -33,4 +33,5 @@ elif figure == 2 :
 elif figure == 3:
     print(erea_circle(int(input("Enter the circle radius: "))))
 else:
-    print("Error you dont etner True numder !")
+    print("Error you do not enter a valid number!!!")
+    

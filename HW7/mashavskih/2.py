@@ -1,9 +1,8 @@
 import re
 
-print('* Password verification *')
-user_password = ""
+print('* Password verification, *')
 
-def check_validity(user_password):
+def check_validity():
     while True:
         user_password = input('Enter your password to check it is validity: ')
         if len(user_password) < 6 or len(user_password) > 16:
@@ -24,4 +23,4 @@ def check_validity(user_password):
         else:
             print(f'Your password - {user_password} - valid!')
             break
-check_validity(user_password)
+check_validity()

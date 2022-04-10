@@ -11,11 +11,11 @@
 import re
 
 def check_pass(password):
-    pattern = re.compile(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*(\$|#|@)).{6,16}$')
+    pattern = re.compile(r'^(?=.*[a-zA-Z0-9])(?=.*(\$|#|@)).{6,16}$')
     pass_search = pattern.search(password)
     while pass_search is not None:
         return True
     else:
         return False
-# a = (input("asdasda: "))
-# print(check_pass(a))
+a = (input("asdasda: "))
+print(check_pass(a))

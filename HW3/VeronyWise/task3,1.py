@@ -19,13 +19,13 @@ zen_of_py = '''
 18. If the implementation is easy to explain, it may be a good idea.
 19. Namespaces are one honking great idea -- let's do more of those!'''
 
-quantity_better = zen_of_py.find('better')
+quantity_better = zen_of_py.count('better')
 print('Quantity word better:', quantity_better)
 
-quantity_never = zen_of_py.find('never')
+quantity_never = zen_of_py.count('never')
 print('Quantity word never:', quantity_never)
 
-quantity_is = zen_of_py.find('is')
+quantity_is = zen_of_py.count('is')
 print('Quantity word is:', quantity_is)
 
 upper_zen = zen_of_py.upper()
@@ -33,3 +33,4 @@ print('Upper text Zen:', upper_zen)
 
 replace_i = zen_of_py.replace('i','&')
 print('Replace i on &:', replace_i)
+

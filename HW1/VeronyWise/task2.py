@@ -1,5 +1,5 @@
-a = int(input('enter a:'))
-b = int(input('enter b:'))
+a = int(input('Please, write number A: '))
+b = int(input('Please, write number B: '))
 sign = input('Sign +, -, *, /, **:')
 if sign == '+':
      print(a + b)

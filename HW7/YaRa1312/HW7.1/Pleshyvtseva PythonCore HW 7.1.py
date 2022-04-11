@@ -1,0 +1,4 @@
+import module2_user_choice_between_r_t_c
+
+print(module2_user_choice_between_r_t_c.user_choice_between_rectangle_triangle_circle())
+

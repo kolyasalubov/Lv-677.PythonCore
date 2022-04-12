@@ -40,6 +40,4 @@ Zen of Python!
 49. Namespaces are one honking great idea -- let's do more of those!
 50. In the face of ambiguity, refuse the temptation to guess.
 56. Readability counts.
-57.Special cases aren't special enough to break the rules.
 58. Complex is better than complicated.
-59. Explicit is better than implicit.

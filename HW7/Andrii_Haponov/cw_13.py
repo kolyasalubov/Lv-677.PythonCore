@@ -8,4 +8,4 @@ def count_sheeps(sheep):
     return count 
 
 
-print(count_sheeps([True, True, False]))
+# print(count_sheeps([True, True, False]))

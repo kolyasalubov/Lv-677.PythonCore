@@ -4,4 +4,4 @@ def are_you_playing_banjo(name):
     else:
         return f"{name} does not play banjo"
 
-# print(are_you_playing_banjo("tomeo"))
+print(are_you_playing_banjo("tomeo"))

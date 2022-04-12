@@ -4,4 +4,4 @@ def bool_to_word(boolean):
     elif boolean == False:
         return "No"
 
-print(bool_to_word(False))
+# print(bool_to_word(False))

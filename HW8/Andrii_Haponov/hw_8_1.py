@@ -12,7 +12,7 @@ import random
 random_number = random.randint(1, 100)
 
 
-usrere_number = int(input("Enteк a number from 1 to 100: "))
+usrere_number = int(input("Enter a number from 1 to 100: "))
 
 while usrere_number != random_number:
     if usrere_number > random_number:

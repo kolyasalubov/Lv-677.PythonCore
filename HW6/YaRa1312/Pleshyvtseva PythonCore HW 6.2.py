@@ -25,7 +25,7 @@ def circle_area(r):
     Pi is written to within 11 characters
     after the comma.
     '''
-    circ_area = 3.14159265359 * r
+    circ_area = 3.14159265359 * r * r
     return(f"The circle area is {circ_area}")
 
 

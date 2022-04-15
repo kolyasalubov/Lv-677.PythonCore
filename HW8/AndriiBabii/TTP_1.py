@@ -5,21 +5,20 @@
 # And also in the class create a static method that returns an arbitrary message. 
 
 class Human():
-
+    spcs = "Homosapiens"
     def __init__(self, human_name):
         self.name = human_name
-        pass
 
     def welcome(self):
         print(f"{self.name}, hello!")
 
     @classmethod
     def species(cls):
-        return "Homosapiens"
+        return cls.spcs
     
     @staticmethod
-    def who_is():
-        return """
+    def inform(message = ""):
+        if message == "": return """
         Humans (Homo sapiens) are the most abundant and widespread species of primate, 
         characterized by bipedalism and large, complex brains. 
         This has enabled the development of advanced tools, culture, and language. 
@@ -27,10 +26,11 @@ class Human():
         composed of many cooperating and competing groups, 
         from families and kinship networks to political states. 
         """
+        else: return message
 
 
 doctor_octopus = Human("Gunther")
 doctor_octopus.welcome()
 print(Human.species())
-print(Human.who_is())
+print(Human.inform("Lolol"))
 

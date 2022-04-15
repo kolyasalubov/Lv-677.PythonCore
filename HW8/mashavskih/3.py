@@ -20,4 +20,3 @@ print('The class namespace:', Employee.__dict__)
 print('The class name:', Employee.__name__)
 print('The module name in which the class is defined:', Employee.__module__)
 print('The documentation bar :', Employee.__doc__)
-

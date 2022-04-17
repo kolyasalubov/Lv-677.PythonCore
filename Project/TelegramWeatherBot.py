@@ -44,7 +44,7 @@ def test(message):
 						f"The pressure is {pressure} mm Hg\n")
 
 	except:
-		bot.send_message(message.chat.id, "Такой город не найден!")
-		print(str(message.text), "- не найден")
+		bot.send_message(message.chat.id, "Can't find such city")
+		print(str(message.text), "- not found")
 
 bot.polling(none_stop=True)

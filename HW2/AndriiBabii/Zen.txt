@@ -31,17 +31,4 @@ Zen of Python!
 28.Sparse is better than dense.
 29.Although practicality beats purity.
 30. Unless explicitly silenced.
-33. Although that way may not be obvious at first unless you're Dutch.
-35. Although never is often better than *right* now.
-36. If the implementation is hard to explain, it's a bad idea.
-37. If the implementation is easy to explain, it may be a good idea.
-39. Beautiful is better than ugly.
-42. Complex is better than complicated  
-44. Sparse is better than dense.
 46. Special cases aren't special enough to break the rules.
-47. Although practicality beats purity.
-49. Namespaces are one honking great idea -- let's do more of those!
-50. In the face of ambiguity, refuse the temptation to guess.
-56. Readability counts.
-58. Complex is better than complicated.
-59. Explicit is better than implicit.

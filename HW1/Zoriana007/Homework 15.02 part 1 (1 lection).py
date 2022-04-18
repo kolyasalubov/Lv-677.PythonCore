@@ -1,0 +1,15 @@
+user_name = input("What is your name ?")
+print("Hello, ", user_name)
+age = input("How old are you?")
+print("Your age is ", age)
+living_place = input("Where do you live?")
+print("You live in ", living_place)
+print("Nice to meet you", user_name)
+print("Let's define variables a and b.")
+a = 10
+b = 12
+print("a+b = ", a+b)
+print("a-b = ", a-b)
+print("a*b = ", a*b)
+print("a/b = ", a/b)
+print("a**b = ", a**b)

@@ -12,7 +12,7 @@ Zen of Python!
 11.Unless explicitly silenced.
 12.In the face of ambiguity, refuse the temptation to guess.
 13.There should be one-- and preferably only one --obvious way to do it.
-14. Although that way may not be obvious at first unless you're Dutch.
+14.Although that way may not be obvious at first unless you're Dutch.
 15.Now is better than never.
 16.Although never is often better than *right* now.
 17.If the implementation is hard to explain, it's a bad idea.
@@ -23,17 +23,21 @@ Zen of Python!
 22.Simple is better than complex.
 23.Complex is better than complicated.
 24.Flat is better than nested.
-23.Complex is better than complicated.
-24.Flat is better than nested.
 25.Sparse is better than dense.
-26.Complex is better than complicated.
+26.Readability counts.
 27.Special cases aren't special enough to break the rules.
 28.Sparse is better than dense.
 29.Although practicality beats purity.
 30. Unless explicitly silenced.
 33. Although that way may not be obvious at first unless you're Dutch.
 35. Although never is often better than *right* now.
+36. If the implementation is hard to explain, it's a bad idea.
+37. If the implementation is easy to explain, it may be a good idea.
 39. Beautiful is better than ugly.
+42. Complex is better than complicated  
 44. Sparse is better than dense.
 47. Although practicality beats purity.
+49. Namespaces are one honking great idea -- let's do more of those!
 50. In the face of ambiguity, refuse the temptation to guess.
+56. Readability counts.
+58. Complex is better than complicated.

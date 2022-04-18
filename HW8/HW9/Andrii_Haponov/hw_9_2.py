@@ -31,3 +31,4 @@ print(Human.classmethod())
 print(obj1.classmethod())
 print(obj1.staticmethod())
 print(obj2.staticmethod())
+

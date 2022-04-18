@@ -51,5 +51,10 @@ emploer_2 = Create_an_employee("Lora", 6000)
 
 print(emploer_1.Total_employees())
 print(emploer_1.Information_about_each_employee())
+print(Create_an_employee.__base__)
+print(Create_an_employee.__dict__)
+print(Create_an_employee.__name__)
+print(Create_an_employee.__module__)
+print(Create_an_employee.__doc__)
 
     

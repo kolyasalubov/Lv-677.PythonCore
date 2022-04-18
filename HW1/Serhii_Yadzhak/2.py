@@ -1,0 +1,7 @@
+a=int(input('Enter the first number: '))
+b=int(input('Enter the second number: '))
+print('a plus b =', a + b)
+print('a minus b =', a - b)
+print('a multiply by b =', a * b)
+print('a divide by b =', a / b)
+print('a to the b power=', a ** b)

@@ -1,0 +1,6 @@
+name_of_user = input('What is your name?\n')
+print('Hello,', name_of_user)
+age_of_user = input('How old are you?\n')
+print('You are age is', age_of_user)
+place_of_leaving_user = input('Where do you live?\n')
+print('You live in', place_of_leaving_user)

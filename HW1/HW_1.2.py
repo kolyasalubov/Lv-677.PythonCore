@@ -1,0 +1,7 @@
+a = int(input("Please enter the 1sr number "))
+b = int(input("Please enter the 2nd number "))
+print (a + b)
+print (a - b)
+print (a * b)
+print (a / b)
+print (a ** b)

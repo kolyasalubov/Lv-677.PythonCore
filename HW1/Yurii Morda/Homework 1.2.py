@@ -1,0 +1,12 @@
+a = int(input("Input first value :"))
+b = int(input("Input second value :"))
+suma = a + b
+riznutsya = a - b
+dobytok = a * b
+chastka = a / b
+stepin = a ** b
+print("Suma a + b =",suma)
+print("Riznutsya a - b =",riznutsya)
+print("Dobytok a * b =",dobytok)
+print("Chastka a / b =",chastka)
+print("Stepin a ** b =",stepin)

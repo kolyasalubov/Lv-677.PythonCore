@@ -1,6 +1,0 @@
-name_1 = str(input("what is your name?"))
-age = int(input ("How old are you?"))
-city = str(input ("Where do you live?"))
-print ("Hello,", name_1)
-print ("Your age is", age)
-print ("You live in", city)

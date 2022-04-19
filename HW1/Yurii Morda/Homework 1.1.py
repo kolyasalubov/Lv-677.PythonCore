@@ -1,0 +1,10 @@
+
+print("Hello what is your name ?")
+name = input("My name is :")
+print("What is your age ?")
+age = int(input("I am :"))
+print("Where do you live ?")
+place = input("I live in : ")
+print("My name is : ", name)
+print("I am :", age)
+print("I live in ", place) 

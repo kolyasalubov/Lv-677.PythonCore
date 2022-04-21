@@ -17,36 +17,25 @@ GREEN = (64,169,64)
 LIGHT_GREEN = (100,150,100)
 RED = (200, 70, 50)
 
-#main var
-
-numa_try = 5 #кількість спроб
-
-
-alphabets = None
-word_list = []
-keys_log = []
-checks = False
-
+#main variable
+numa_try = 5                    #кількість спроб
+path = "MyGame/words.txt"       #шлях
 
 #initing obj
 pygame.init()
 pygame.font.init()
-
-#font
-
 
 #setting graph
 gameDisplay=pygame.display.set_mode((WIDTH_DISPLAY, HEIGHT_DISPLAY), pygame.RESIZABLE)
 pygame.display.set_caption("Wordl")
 clock = pygame.time.Clock()
 
-#-----------------------------------------------------
-
-
 def import_word():
     """Import word from file"""
-    global alphabets
-    file = open("MyGame/words.txt", encoding = 'utf-8')
+    global alphabets, word_list
+    alphabets = None
+    word_list = []
+    file = open(path, encoding = 'utf-8')
     for line in file:
         if line.startswith("|"):
             alphabets = line.removeprefix("|").removesuffix("\n")
@@ -76,8 +65,6 @@ def clearing_var():
     missmatch_char = set()
     hits_char = set()
     matched_char = set()
-
-
 
 class Button:
    
@@ -120,7 +107,6 @@ class Button:
                     elif self.event == "Check":
                         KeyEvent.check()
 
-
 class KeyEvent:
 
     def key_input(char):
@@ -141,7 +127,6 @@ class KeyEvent:
         global checks
         if len(keys_log) == numa_char:
             checks = True
-
 
 class Keyboard:
 
@@ -194,7 +179,6 @@ class Keyboard:
                 
             key[i] = Button(alphabets[i], (key_x, key_y), color_key, (key_w, key_h))
 
-
 class AdditionalButton():
 
     def create():
@@ -214,7 +198,6 @@ class AdditionalButton():
     def update():
         global check_button
         check_button = Button("Check",((gameDisplay.get_width()-170),10), GREEN, (160, 60), "Check")
-
 
 class Checking:
 
@@ -307,7 +290,6 @@ class VisualWord():
     def get_frozen(self):
         return self.frozen
 
-
 class Fields:
 
     def create():
@@ -327,21 +309,21 @@ class Fields:
             keys_log.clear()
             try: itr = next(row_ite)
             except: lose = True
-           
-            
+
 def new_game():
     clearing_var()
     import_word()
     rolling_word()
     iterator()
 
-
 def mainloop():
     global keys_log
-    global checks, lose
-    global play
+    global checks, lose, play
     run = True
     lose = False
+    checks = False
+    keys_log = []
+
     Keyboard.create()
     AdditionalButton.create()
     Fields.create()

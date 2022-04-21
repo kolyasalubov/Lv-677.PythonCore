@@ -19,7 +19,7 @@ RED = (200, 70, 50)
 
 #main variable
 numa_try = 5                    #кількість спроб
-path = "MyGame/number.txt"       #шлях
+path = "words.txt"              #шлях
 
 #initing obj
 pygame.init()

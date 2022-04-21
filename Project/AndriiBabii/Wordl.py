@@ -19,7 +19,7 @@ RED = (200, 70, 50)
 
 #main variable
 numa_try = 5                    #кількість спроб
-path = "MyGame/words.txt"       #шлях
+path = "MyGame/number.txt"       #шлях
 
 #initing obj
 pygame.init()
@@ -53,7 +53,7 @@ def rolling_word():
 
 def iterator():
     global row_ite, itr
-    iters = list({x for x in range(numa_char)})
+    iters = list({x for x in range(numa_try)})
     row_ite = iter(iters)
     itr = 0
 

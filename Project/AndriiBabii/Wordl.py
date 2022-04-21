@@ -33,8 +33,6 @@ pygame.init()
 pygame.font.init()
 
 #font
-font = pygame.font.SysFont(None, 48)
-big_font = pygame.font.SysFont(None, 108)
 
 
 #setting graph
@@ -46,6 +44,7 @@ clock = pygame.time.Clock()
 
 
 def import_word():
+    """Import word from file"""
     global alphabets
     file = open("MyGame/words.txt", encoding = 'utf-8')
     for line in file:
@@ -56,6 +55,7 @@ def import_word():
     file.close()
 
 def rolling_word():
+    """Randomize word for game"""
     global word, word_char, numa_char
     word = random.choice(word_list)
     word_char = list(word.upper())
@@ -69,6 +69,7 @@ def iterator():
     itr = 0
 
 def clearing_var():
+    """Clearing variables"""
     global field, missmatch_char, hits_char, matched_char, key
     field = []
     key = []
@@ -78,7 +79,7 @@ def clearing_var():
 
 
 
-class button:
+class Button:
    
 
     def __init__(self, text = "None", 
@@ -97,7 +98,6 @@ class button:
         self.font = pygame.font.SysFont(font, size_font)
         self.change_text(text)
     def change_text(self, text):
-        """render text and background"""
         self.text = self.font.render(text, 1, DARK_GREY)
         self.text_rect = self.text.get_rect(center=(self.x+self.width //2, self.y+ self.height //2))
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
@@ -107,32 +107,48 @@ class button:
         gameDisplay.blit(self.text, self.text_rect)
 
     def click(self, event):
-        global checks
-        global keys_log
-
         x, y = pygame.mouse.get_pos()
         if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed()[0]:
                 if self.rect.collidepoint(x, y):
                     if self.event == "Keyboard":
-                        keys_log.append(self.char.upper())
+                        KeyEvent.key_input(self.char.upper())
                     elif self.event == "Clear":
-                        checks = False
-                        keys_log.clear()
-                    elif self.event == "Erase" and len(keys_log) != 0:
-                        checks = False
-                        keys_log.pop()
+                        KeyEvent.clear()
+                    elif self.event == "Erase":
+                        KeyEvent.erase()
                     elif self.event == "Check":
-                        if len(keys_log) == numa_char:
-                            checks = True
+                        KeyEvent.check()
 
 
-class keyboard:
+class KeyEvent:
+
+    def key_input(char):
+        keys_log.append(char)
+
+    def clear():
+        global checks
+        checks = False
+        keys_log.clear()
+    
+    def erase():
+        global checks
+        if len(keys_log) != 0: 
+            checks = False
+            keys_log.pop()
+
+    def check():
+        global checks
+        if len(keys_log) == numa_char:
+            checks = True
+
+
+class Keyboard:
 
     def create():
         global key
         for i in range(len(alphabets)):
-            key.append(button())
+            key.append(Button())
 
     def show():
         for i in range(len(alphabets)):
@@ -155,17 +171,14 @@ class keyboard:
             elif (len(alphabets)-i) < (numa_key): 
                 #key_x = gameDisplay.get_width() / (len(alphabets)-i) + key_w/2
                 key_x = (gameDisplay.get_width() / (key_w + space/2) - (len(alphabets)-i)) * key_w / 2 - key_w
-
-
                 key_y -= (key_h + space)
             else:
                 key_x = gameDisplay.get_width() / numa_key - key_w / 2
                 key_y -= (key_h + space)
 
 
-            #Заданя коляру для клавіш
             color_key = BEIGE
-
+            
             for char in hits_char:
                 if alphabets[i].upper() == char:
                     color_key = ORANGE
@@ -179,19 +192,19 @@ class keyboard:
                     color_key = LIGHT_GREY
 
                 
-            key[i] = button(alphabets[i], (key_x, key_y), color_key, (key_w, key_h))
+            key[i] = Button(alphabets[i], (key_x, key_y), color_key, (key_w, key_h))
 
 
-class additional_button():
+class AdditionalButton():
 
     def create():
         global clear_button
         global check_button
         global erase_button
 
-        clear_button = button("Clr",(10,10), RED, (60, 60), "Clear")
-        erase_button = button("Erase",(80,10), ORANGE, (100, 60), "Erase")
-        check_button = button("Check",((gameDisplay.get_width()-170),10), GREEN, (160, 60), "Check")
+        clear_button = Button("Clr",(10,10), RED, (60, 60), "Clear")
+        erase_button = Button("Erase",(80,10), ORANGE, (100, 60), "Erase")
+        check_button = Button("Check",((gameDisplay.get_width()-170),10), GREEN, (160, 60), "Check")
 
     def show():
         clear_button.show()
@@ -200,12 +213,12 @@ class additional_button():
 
     def update():
         global check_button
-        check_button = button("Check",((gameDisplay.get_width()-170),10), GREEN, (160, 60), "Check")
+        check_button = Button("Check",((gameDisplay.get_width()-170),10), GREEN, (160, 60), "Check")
 
 
-class checking:
-    
-    #Добавь функцію для провірки наявності слова в словарю
+class Checking:
+
+    #Добавити функцію для перевірки наявності слова в словнику
 
     def check_char():
         global hits_char
@@ -257,10 +270,11 @@ class words():
         self.row = row
         self.y = char_y + (self.h + self.space) * self.row
         self.x = (gameDisplay.get_width() / self.w - numa_char) * self.w / 2 - self.w/2
+        self.font = pygame.font.SysFont(None, 48)
         self.frozen = False
-        
+        self.check = False        
 
-    def create_field(self):
+    def create_frame(self):
         for i in range(numa_char):
             for j in range(numa_try):
                 self.x = (gameDisplay.get_width() / self.w - numa_char) * self.w / 2 - self.w/2
@@ -271,39 +285,30 @@ class words():
         if checks == True and self.frozen == False:
             self.word = "".join(keys_log)
             self.frozen = True
+            self.check = True
+        elif self.frozen != True:
+            self.word = keys_log
 
-        if self.frozen == True:
-            for i in range(numa_char):   
-                if checking.check_word_i(i, self.word, True) == True:
-                    cell_color = GREEN
-                elif checking.check_char_i(i, self.word, True) == True:
-                    cell_color = ORANGE
-                else: cell_color = BEIGE
 
-                pygame.draw.rect(gameDisplay, cell_color, [self.x+i*(self.w+10), self.y, self.w, self.h])
+        for i in range(len(self.word)):   
+            if Checking.check_word_i(i, self.word, self.check) == True:
+                cell_color = GREEN
+            elif Checking.check_char_i(i, self.word, self.check) == True:
+                cell_color = ORANGE
+            else: cell_color = BEIGE
 
-                text = font.render(self.word[i], 1, DARK_GREY)
-                text_rect = text.get_rect(center=(self.x+i*(self.w+10) + self.w //2, self.y + self.h //2))
-                gameDisplay.blit(text, text_rect)
-        else:
-            for i in range(len(keys_log)):
-                if checking.check_word_i(i, keys_log) == True:
-                    cell_color = GREEN
-                elif checking.check_char_i(i, keys_log) == True:
-                    cell_color = ORANGE
-                else: cell_color = BEIGE
+            pygame.draw.rect(gameDisplay, cell_color, [self.x+i*(self.w+10), self.y, self.w, self.h])
 
-                pygame.draw.rect(gameDisplay, cell_color, [self.x+i*(self.w+10), self.y, self.w, self.h])
+            text = self.font.render(self.word[i], 1, DARK_GREY)
+            text_rect = text.get_rect(center=(self.x+i*(self.w+10) + self.w //2, self.y + self.h //2))
+            gameDisplay.blit(text, text_rect)
 
-                text = font.render(keys_log[i], 1, DARK_GREY)
-                text_rect = text.get_rect(center=(self.x+i*(self.w+10) + self.w //2, self.y + self.h //2))
-                gameDisplay.blit(text, text_rect)
     
-    def its_frozen(self):
+    def get_frozen(self):
         return self.frozen
 
 
-class fields:
+class Fields:
 
 
     def create():
@@ -318,7 +323,7 @@ class fields:
         for i in range(itr):
             field[i].words_field()
         field[itr].words_field()
-        if field[itr].its_frozen() == True:
+        if field[itr].get_frozen() == True:
             checks = False
             keys_log.clear()
             try:
@@ -339,9 +344,9 @@ def mainloop():
     global checks
     global play
     run = True
-    keyboard.create()
-    additional_button.create()
-    fields.create()
+    Keyboard.create()
+    AdditionalButton.create()
+    Fields.create()
     
     while run:
         pygame.time.delay(100)
@@ -352,15 +357,13 @@ def mainloop():
                 play = False
             elif event.type == pygame.KEYDOWN:
                 # get pressed key
-                if event.key == 8 and len(keys_log) != 0:
-                    checks = False
-                    keys_log.pop()
+                if event.key == 8:
+                    KeyEvent.erase()
                 elif event.key == 13:
-                    if len(keys_log) == numa_char: 
-                        checks = True
+                    KeyEvent.check()
                 elif len(keys_log) < numa_char and event.unicode != '' and event.unicode.lower() in alphabets.lower():
                     checks = False
-                    keys_log.append(event.unicode.upper())
+                    KeyEvent.key_input(event.unicode.upper())
                 else: checks = False
             elif len(keys_log) < numa_char:
                 for i in range(len(alphabets)):
@@ -370,19 +373,19 @@ def mainloop():
             erase_button.click(event)
 
         #Game
-        checking.check_char()
+        Checking.check_char()
         gameDisplay.fill(LIGHT_BEIGE) 
-        field[0].create_field()
-        keyboard.update()
-        additional_button.update()
-        keyboard.show()
-        additional_button.show()
+        field[0].create_frame()
+        Keyboard.update()
+        AdditionalButton.update()
+        Keyboard.show()
+        AdditionalButton.show()
 
-        if checking.check_word() == True:
+        if Checking.check_word() == True:
             gameDisplay.fill(LIGHT_GREEN)
             run = False
 
-        fields.show()
+        Fields.show()
 
         pygame.display.update()
         clock.tick(FPS)
@@ -395,4 +398,3 @@ while play:
     score += 1
     last_word = word
     pygame.display.set_caption(f"Wordl SCORE: {score}  Last word: {last_word}")
-

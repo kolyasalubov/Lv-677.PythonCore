@@ -178,7 +178,7 @@ class Keyboard:
 
 
             color_key = BEIGE
-            
+
             for char in hits_char:
                 if alphabets[i].upper() == char:
                     color_key = ORANGE
@@ -255,7 +255,7 @@ class Checking:
             if wrd[i] == word_char[i]:
                 return True
 
-class words():
+class VisualWord():
 
     def __init__(self, 
                 char_h = 60, 
@@ -280,7 +280,7 @@ class words():
                 self.x = (gameDisplay.get_width() / self.w - numa_char) * self.w / 2 - self.w/2
                 pygame.draw.rect(gameDisplay, BEIGE, [self.x+i*(self.w+10), self.y + j*(self.h + self.space), self.w, self.h])
     
-    def words_field(self):
+    def show(self):
         self.x = (gameDisplay.get_width() / self.w - numa_char) * self.w / 2 - self.w/2
         if checks == True and self.frozen == False:
             self.word = "".join(keys_log)
@@ -310,10 +310,9 @@ class words():
 
 class Fields:
 
-
     def create():
         for i in range(numa_try):
-            field.append(words(row = i))
+            field.append(VisualWord(row = i))
             
 
     def show():
@@ -321,15 +320,13 @@ class Fields:
         global checks
         global itr
         for i in range(itr):
-            field[i].words_field()
-        field[itr].words_field()
+            field[i].show()
+        field[itr].show()
         if field[itr].get_frozen() == True:
             checks = False
             keys_log.clear()
-            try:
-                itr = next(row_ite)
-            except:
-                iterator = numa_char
+            try: itr = next(row_ite)
+            except: pass
            
             
 def new_game():

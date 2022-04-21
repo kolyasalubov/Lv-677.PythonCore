@@ -317,7 +317,7 @@ class Fields:
 
     def show():
         global keys_log
-        global checks
+        global checks, lose
         global itr
         for i in range(itr):
             field[i].show()
@@ -326,7 +326,7 @@ class Fields:
             checks = False
             keys_log.clear()
             try: itr = next(row_ite)
-            except: pass
+            except: lose = True
            
             
 def new_game():
@@ -338,13 +338,13 @@ def new_game():
 
 def mainloop():
     global keys_log
-    global checks
+    global checks, lose
     global play
     run = True
+    lose = False
     Keyboard.create()
     AdditionalButton.create()
     Fields.create()
-    
     while run:
         pygame.time.delay(100)
         #Event
@@ -370,6 +370,8 @@ def mainloop():
             erase_button.click(event)
 
         #Game
+
+
         Checking.check_char()
         gameDisplay.fill(LIGHT_BEIGE) 
         field[0].create_frame()
@@ -378,9 +380,13 @@ def mainloop():
         Keyboard.show()
         AdditionalButton.show()
 
-        if Checking.check_word() == True:
+        if Checking.check_word():
             gameDisplay.fill(LIGHT_GREEN)
             run = False
+        elif lose:
+            gameDisplay.fill(RED)
+            run = False
+
 
         Fields.show()
 
@@ -392,6 +398,9 @@ score = 0
 while play:
     new_game()
     mainloop()
-    score += 1
+    if lose:
+        score -= 1
+    else:
+        score += 1
     last_word = word
     pygame.display.set_caption(f"Wordl SCORE: {score}  Last word: {last_word}")

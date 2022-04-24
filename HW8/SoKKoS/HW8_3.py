@@ -10,9 +10,6 @@ class Employee:
         self.name = name
         self.salary = salary
 
-    def __del__(self):
-        Employee.count -= 1
-
     @classmethod
     def total_num(cls):
         print(f"Total employee number is {cls.count}")

@@ -1,4 +1,3 @@
-
 from datetime import date
 from math import floor
 import telebot
@@ -27,8 +26,9 @@ def greeting_message(message):
         f"Glory to Ukraine! {quantity_of_days}",
         reply_markup = keyboard())
 
+
 @bot.message_handler(commands=['help'])
-def greeting_message(message):
+def help_message(message):
     bot.send_message(
         message.chat.id,
         "I`m a bot, which helps you find out which day of war is today.\
@@ -47,7 +47,7 @@ def bot_message(message):
         elif message.text == "Have Putin died?":
             bot.send_message(
                 message.chat.id,
-                f"Unfortanately, not yet. But today is {quantity_of_days} day since the beginning of this process.")
+                "Unfortanately, no, but with each day this event becomes closer and closer.")
         
 
 bot.infinity_polling()

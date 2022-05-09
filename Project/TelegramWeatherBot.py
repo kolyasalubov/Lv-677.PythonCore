@@ -31,6 +31,7 @@ def test(message):
         wind = w.wind()['speed']
         humidity = w.humidity
         pressure = w.pressure['press']
+
         bot.send_message(message.chat.id,
                          f"In {place} the temperature is "
                          f"{temperature_real} °C\n"

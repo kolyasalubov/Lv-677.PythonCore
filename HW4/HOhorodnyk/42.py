@@ -3,7 +3,7 @@ listfloat = []
 
 listfloat.append(float(list_one))
 
-print(listfloat)
+# print(listfloat)
 
 
 

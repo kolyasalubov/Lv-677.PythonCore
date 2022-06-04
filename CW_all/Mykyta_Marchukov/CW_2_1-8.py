@@ -36,10 +36,46 @@
 
 ########## 4
 #Will you make it?
-def zero_fuel(distance_to_pump, mpg, fuel_left):
-    return distance_to_pump / mpg <= fuel_left
-print(zero_fuel(100,25,5))
+# def zero_fuel(distance_to_pump, mpg, fuel_left):
+#     return distance_to_pump / mpg <= fuel_left
+# print(zero_fuel(100,25,5))
+
+
 ########## 5
+#Are You Playing Banjo?
+# def are_you_playing_banjo(name):
+#     if name[0] == 'r' or name[0] == 'R':
+#         return f'{name} plays banjo'
+#     else:
+#         return f'{name} does not play banjo'
+
+
 ########## 6
+#Convert boolean values to strings 'Yes' or 'No'.
+# def bool_to_word(boolean):
+#     if boolean == True:
+#         return f"Yes"
+#     else:
+#         return f"No"
+
+
 ########## 7
+#Counting sheep...
+# def count_sheeps(sheep):
+#     count = 0
+#     for i in sheep:
+#         if i == True:
+#             count += 1
+#     return count
+
+
 ########## 8
+#Is this my tail?
+# def correct_tail(body, tail):
+#     if body[-1] == tail:
+#         return True
+#     else:
+#         return False
+
+#asdasdafsdsad
+

@@ -35,18 +35,27 @@
 #Convert a Number to a String!
 # def number_to_string(num):
 #     return str(num)
+#
 # print(number_to_string(123))
 
 
 ################# 5
 #Reversing Words in a String
-def reverse(st):
-    words = st.split()
-    rev_words = list(reversed(words))
-    new_str = ""
-    for i in rev_words:
-        new_str += str(i)+" "
-    return new_str.rstrip()
+# def reverse(st):
+#     words = st.split()
+#     rev_words = list(reversed(words))
+#     new_str = ""
+#     for i in rev_words:
+#         new_str += str(i)+" "
+#     return new_str.rstrip()
+#
+# print(reverse("Hello World."))
 
 
-print(reverse("Hello World asdasd."))
+################# 6
+#Jenny's secret message
+# def greet(name):
+#     if name == "Johnny":
+#         return "Hello, my love!"
+#     else:
+#         return "Hello, {name}!".format(name=name)

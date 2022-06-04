@@ -17,7 +17,7 @@ class Human():
     
     @staticmethod
     def message():
-        print(f'His serves in ZSU')
+        print(f'His serves in ZSU.')
 
 person = Human('Kolya')
 person.greeting()

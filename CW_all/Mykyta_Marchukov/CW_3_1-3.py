@@ -8,13 +8,17 @@
 
 ########## 2
 #Fix the loop!
-def list_animals(animals):
-    list = ''
-    for i in range(animals):
-        list += str(i + 1) + '. ' + animals[i] + '\n'
-    return list
-animalsi = ['asdsaf', 'asdas', 'afaf']
-print(list_animals(animalsi))
+# def list_animals(animals):
+#     list = ''
+#     for i in range(len(animals)):
+#         list += str(i + 1) + '. ' + animals[i] + '\n'
+#     return list
 
 
 ########## 3
+#Double Char
+def double_char(s):
+    double_string = ''
+    for i in s:
+        double_string += i*2
+    return double_string

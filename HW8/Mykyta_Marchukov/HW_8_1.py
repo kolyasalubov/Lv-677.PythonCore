@@ -22,11 +22,6 @@ class Quadrate(Polygon):
         square = a ** 2
         print(f"The rectangle squere is {square}")
 
-# q = Quadrate()
-# q.inputSides()
-# q.sizeSides()
-# q.findSquare()
-
 class Rectangle(Polygon):
     def __init__(self):
         super().__init__(2)
@@ -40,3 +35,8 @@ r = Rectangle()
 r.inputSides()
 r.sizeSides()
 r.findSquare()
+
+# q = Quadrate()
+# q.inputSides()
+# q.sizeSides()
+# q.findSquare()
